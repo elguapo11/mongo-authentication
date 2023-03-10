@@ -1,0 +1,6 @@
+MongoDB is already created and a few records have been inserted.
+DB is called 'bennyMongo'
+
+show dbs - shows databases
+
+Following from https://www.youtube.com/watch?v=ofme2o29ngU&t=1607s
