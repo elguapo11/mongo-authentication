@@ -1,3 +1,2 @@
 .env
-vite_project/node_modules
-/server/node_modules
+**/node_modules
