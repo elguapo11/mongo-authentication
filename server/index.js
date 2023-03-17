@@ -38,8 +38,10 @@ const Kitten = mongoose.model('Kitten', kittySchema);
 
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/test')}
-  
+  await mongoose.connect('mongodb://localhost/3000')}
+  const db = mongoose.connection
+  db.on('error', (error) => console.log(error))
+  db.on('connected',() => console.log('connected to db'))
 
 const silence = new Kitten({ name: 'Silence' });
 console.log(silence.name); // 'Silence'
@@ -51,4 +53,3 @@ fluffy.speak(); // "Meow name is fluffy"
 
 
 
-  
