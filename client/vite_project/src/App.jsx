@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 import './App.css'
 import './main.html'
+import { createHtmlPlugin } from 'vite-plugin-html'
+
 
 function App() {
   const [count, setCount] = useState(0)
