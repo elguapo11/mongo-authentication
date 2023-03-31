@@ -6,10 +6,10 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <h1>My own site</h1>
-
+ 
+  <header>
       <div className="container">
+        <h2>My own site</h2>
         <nav>
           <ul>
             <li>
@@ -28,7 +28,7 @@ function App() {
           </ul>
         </nav>
       </div>
-    </div>
+</header>
   );
 }
 
