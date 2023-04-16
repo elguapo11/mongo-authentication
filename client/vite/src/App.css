@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
-body {
-	margin: 0;
-	background: #020b25;
-	font-family: 'Work Sans', sans-serif;
-	font-weight: 800;
-}
+
 
 .container {
 	width: 80%;
@@ -12,7 +7,7 @@ body {
 }
 
 header {
-  background: #55d6aa;
+  background: #00d18b;
 }
 
 header::after {
@@ -27,7 +22,7 @@ header::after {
 }
 
 nav {
-  float: right;
+  float: left;
 }
 
 nav ul {
@@ -40,6 +35,8 @@ nav li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 23px;
+
+
 
   position: relative;
 }
@@ -71,3 +68,13 @@ nav a::before {
 nav a:hover::before {
   width: 100%;
 }
+
+.left-nav-bar-text {
+  background-color: rgb(0, 150, 62);
+  margin: 0 auto;
+  width: 17%;  
+  float: left;
+  justify-content: space-around; 
+  display: flex;
+}
+

@@ -8,12 +8,16 @@ function App() {
   return (
  
   <header>
+      <div className="left-nav-bar-text">
+        <h3>My first navbar</h3>
+      </div>
       <div className="container">
-        <h2>My own site</h2>
+
         <nav>
           <ul>
             <li>
               <a href="#">Home</a>
+              <h2></h2>
             </li>
             <li>
               <a href="#">About</a>
