@@ -68,17 +68,21 @@ button:focus-visible {
   }
 }
 
+canvas {
+
+  place-items: center;
+  place-content: center;
+  }
+  
+
+
 .chessBoard {
-
-  color: red; 
-  box-sizing: border-box;
-  padding-left: 66px;
-
-
+  position: center;
+  flex-direction: column;
 }
-.messages {
-  display: flex;
-  height: max-content;
-  background-color: red;
 
+.display {
+  position: center;
+  flex-direction: column;
+  display: inline;
 }
