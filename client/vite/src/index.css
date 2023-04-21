@@ -67,3 +67,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+canvas {
+
+  place-items: center;
+  place-content: center;
+  }
+  
+
+
+.chessBoard {
+  position: center;
+  flex-direction: column;
+}
+
+.display {
+  position: center;
+  flex-direction: column;
+  display: inline;
+}
