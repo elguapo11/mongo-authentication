@@ -1,6 +1,9 @@
+import './index.css'
+
 "use strict";
 
-function ChessBoard(x, y, type, color) {
+
+function Piece(x, y, type, color) {
   let char;
   let moved = false;
   switch (type) {
@@ -352,4 +355,4 @@ function reset() {
   );
 }
 
-export default ChessBoard
+export default Piece

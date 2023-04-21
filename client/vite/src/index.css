@@ -67,3 +67,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.chessBoard {
+
+  color: red; 
+  box-sizing: border-box;
+  padding-left: 66px;
+
+
+}
+.messages {
+  display: flex;
+  height: max-content;
+  background-color: red;
+
+}
