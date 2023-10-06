@@ -1,12 +1,11 @@
 const test = {
   firstName: 'Hello',
-  lastName: 'Goodbye',
+  lastName: 'Goodbyessss',
 };
 
 function name() {
-  console.log('this is a test');
+  console.log('you have just called name ()');
 }
 
 name();
-
 module.exports = test;

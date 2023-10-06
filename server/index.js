@@ -13,6 +13,7 @@ db.on('open', () => console.log('connected to database'));
 
 app.get('/', (req, res) => {
   res.send(test);
+  console.log('you have hit the home page');
 });
 
 app.get('/api', (req, res) => {
