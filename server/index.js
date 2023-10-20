@@ -1,14 +1,19 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const { PORT } = process.env;
 const mongoose = require('mongoose');
 const test = require('./dbroutes');
-
-const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
-const secretKey = 'yourSecretKey';
+const users = [
+  { id: 1, username: 'user1', password: 'password1' },
+  { id: 2, username: 'user2', password: 'password2' },
+];
+
+const secretKey = '1234';
 
 mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
 const db = mongoose.connection;
@@ -23,7 +28,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  res.send('ok');
+  const { username, password } = req.body;
+  const user = users.find((u) => u.username === username);
+
+  if (!user || user.password !== password) {
+    return res.status(401).json({ message: 'Authentication failed' });
+  }
+
+  // If the user is found and the password is correct, generate a JWT
+  const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+
+  res.json({ message: 'Authentication successful', token });
 });
 
 app.get('/api', (req, res) => {
