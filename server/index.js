@@ -5,6 +5,11 @@ const { PORT } = process.env;
 const mongoose = require('mongoose');
 const test = require('./dbroutes');
 
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+
+const secretKey = 'yourSecretKey';
+
 mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
 const db = mongoose.connection;
 
@@ -22,9 +27,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.send('You have hit the api page');
-  res.send(test);
-  res.write(test);
+  res.status(200);
   console.log('You have hit the api page');
 });
 

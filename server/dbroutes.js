@@ -5,7 +5,7 @@ const testing = {
 };
 
 function name() {
-  example: 'hello';
+  console.log('hello, this is function name ');
 }
 
 name();
