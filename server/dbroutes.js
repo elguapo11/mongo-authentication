@@ -1,11 +1,12 @@
-const test = {
+const x = '36';
+const testing = {
   firstName: 'Hello',
   lastName: 'Goodbyessss',
 };
 
 function name() {
-  console.log('you have just called name ()');
+  example: 'hello';
 }
 
 name();
-module.exports = test;
+module.exports = testing;

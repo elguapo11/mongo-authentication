@@ -12,12 +12,19 @@ db.on('error', (error) => console.error(error));
 db.on('open', () => console.log('connected to database'));
 
 app.get('/', (req, res) => {
+  res.status(200);
+  res.setHeader('Content-Type', 'application/json');
   res.send(test);
-  console.log('you have hit the home page');
+});
+
+app.post('/login', (req, res) => {
+  res.send('ok');
 });
 
 app.get('/api', (req, res) => {
   res.send('You have hit the api page');
+  res.send(test);
+  res.write(test);
   console.log('You have hit the api page');
 });
 
