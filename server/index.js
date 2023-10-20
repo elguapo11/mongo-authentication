@@ -7,11 +7,7 @@ const { PORT } = process.env;
 const mongoose = require('mongoose');
 const test = require('./dbroutes');
 const jwt = require('jsonwebtoken');
-
-const users = [
-  { id: 1, username: 'user1', password: 'password1' },
-  { id: 2, username: 'user2', password: 'password2' },
-];
+const { getUsers } = require('../server/users');
 
 const secretKey = '1234';
 
@@ -29,6 +25,8 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+  const users = getUsers(); // Get users from the external file
+
   const user = users.find((u) => u.username === username);
 
   if (!user || user.password !== password) {
