@@ -8,6 +8,8 @@ function getUsers() {
   return JSON.parse(userData);
 }
 
+//example test
+
 module.exports = {
   getUsers,
 };
