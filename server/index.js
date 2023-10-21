@@ -9,7 +9,6 @@ const test = require('./dbroutes');
 const jwt = require('jsonwebtoken');
 const { getUsers } = require('../server/users');
 var SimpleCrypto = require('simple-crypto-js').default;
-
 const { SECRETKEY } = process.env;
 const simpleCrypto = new SimpleCrypto(SECRETKEY);
 
