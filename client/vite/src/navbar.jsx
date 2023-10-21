@@ -13,7 +13,7 @@ function Navbar() {
         <nav>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="#">Home is where the heart is</a>
               <h2></h2>
             </li>
             <li>
