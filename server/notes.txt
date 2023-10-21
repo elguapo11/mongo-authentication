@@ -1,2 +1,0 @@
-have already connected mongosh to this. dbs is bennyMongo
-access by typing mongosh
