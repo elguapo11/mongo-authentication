@@ -51,5 +51,5 @@ app.get('/api', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`My server is running on ${PORT}sss`);
+  console.log(`My server is running on ${PORT}`);
 });
