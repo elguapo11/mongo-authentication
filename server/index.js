@@ -39,6 +39,7 @@ app.post('/login', (req, res) => {
   const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
 
   res.json({ message: 'Authentication successful', token });
+  console.log('Presented Token');
 });
 
 app.get('/api', (req, res) => {
