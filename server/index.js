@@ -38,12 +38,16 @@ app.post('/login', (req, res) => {
   // If the user is found and the password is correct, generate a JWT
   const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
 
-  res.json({ message: 'Authentication successful', token });
+  res.json({
+    message: `Welcome ${username}, Your Authentication was successful`,
+    token,
+  });
   console.log('Presented Token');
 });
 
 app.get('/api', (req, res) => {
   res.status(200);
+  res.send('ok');
   console.log('You have hit the api page');
 });
 
