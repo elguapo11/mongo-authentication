@@ -10,8 +10,8 @@ const jwt = require('jsonwebtoken');
 const { getUsers } = require('../server/users');
 var SimpleCrypto = require('simple-crypto-js').default;
 
-const secretKey = 'some-unique-key';
-const simpleCrypto = new SimpleCrypto(secretKey);
+const { SECRETKEY } = process.env;
+const simpleCrypto = new SimpleCrypto(SECRETKEY);
 
 mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
 const db = mongoose.connection;
@@ -36,7 +36,7 @@ app.post('/login', (req, res) => {
   }
 
   // If the user is found and the password is correct, generate a JWT
-  const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+  const token = jwt.sign({ userId: user.id }, SECRETKEY, { expiresIn: '1h' });
 
   res.json({
     message: `Welcome ${username}, Your Authentication was successful`,
