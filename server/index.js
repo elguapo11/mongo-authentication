@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 const test = require('./dbroutes');
 const jwt = require('jsonwebtoken');
 const { getUsers } = require('../server/users');
+var SimpleCrypto = require('simple-crypto-js').default;
 
-const secretKey = '1234';
+const secretKey = 'some-unique-key';
+const simpleCrypto = new SimpleCrypto(secretKey);
 
 mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
 const db = mongoose.connection;
