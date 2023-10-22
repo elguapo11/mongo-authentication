@@ -15,11 +15,17 @@ db.on('error', (error) => console.error(error));
 db.on('open', () => console.log('connected to database'));
 
 app.post('/login', loginController.login);
+app.get('/logout', loginController.logout);
 
 app.get('/post/get', postController.getPost);
 app.post('/post/create', postController.createPost);
 app.put('/post/update', postController.updatePost);
 app.delete('/post/delete', postController.deletePost);
+
+app.get('/home', (req, res) => {
+  res.send('ok');
+  console.log('hit home page');
+});
 
 app.listen(PORT, () => {
   console.log(`My server is running on ${PORT}`);
