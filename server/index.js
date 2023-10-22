@@ -11,6 +11,7 @@ const { getUsers } = require('../server/users');
 var SimpleCrypto = require('simple-crypto-js').default;
 const { SECRETKEY } = process.env;
 const simpleCrypto = new SimpleCrypto(SECRETKEY);
+const postController = require('./postController');
 
 mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
 const db = mongoose.connection;
@@ -44,11 +45,10 @@ app.post('/login', (req, res) => {
   console.log('Presented Token');
 });
 
-app.get('/api', (req, res) => {
-  res.status(200);
-  res.send('ok');
-  console.log('You have hit the api page');
-});
+app.get('/post/', postController.getPost);
+app.post('/post/', postController.createPost);
+app.put('/post/', postController.updatePost);
+app.delete('/post/', postController.deletePost);
 
 app.listen(PORT, () => {
   console.log(`My server is running on ${PORT}`);
