@@ -2,7 +2,8 @@ import { Component, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import show from '../../../server/react'
+import { show , display} from '../../../server/react'
+
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <h1>{display()}</h1>
       <h1>{show()}</h1>
       <h1>Vite + React</h1>
       <div className="card">
