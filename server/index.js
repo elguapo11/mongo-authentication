@@ -1,5 +1,8 @@
 'use strict';
 
+const loginRoutes = require('./routes/login');
+const postRoutes = require('./routes/posts');
+
 (async function init() {
   require('dotenv').config();
   const express = require('express');
@@ -15,21 +18,15 @@
   db.on('error', (error) => console.error(error));
   db.on('open', () => console.log('connected to database'));
 
-  // app.use(
-  //   '/api',
-  //   (req, res, next) => {
-  //     res.send(200);
-  //     console.log('alive');
-  //     next();
-  //   },
-  //   require('./routes/login'),
-  //   require('./routes/posts'),
+  app.use('/home', (req, res, next) => {
+    res.sendStatus(200);
+    next();
+  });
 
-  //   app.get('/home', (req, res) => {
-  //     res.send('ok');
-  //     console.log('hit home page');
-  //   })
-  // );
+  // app.use('/api', require('./routes/login'), require('./routes/posts'));
+
+  app.use(postRoutes);
+  app.use(loginRoutes);
 
   app.listen(PORT, () => {
     console.log(`My server is running on ${PORT}`);

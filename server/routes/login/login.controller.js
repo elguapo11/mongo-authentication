@@ -1,9 +1,10 @@
 const { getUsers } = require('../../users');
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const { SECRETKEY } = process.env;
+
 const SimpleCrypto = require('simple-crypto-js').default;
-const simpleCrypto = new SimpleCrypto(SECRETKEY);
+const { SECRETKEY } = process.env;
+const simpleCrypto = new SimpleCrypto({ SECRETKEY });
 
 exports.logout = async (req, res) => {
   req.session = null;
