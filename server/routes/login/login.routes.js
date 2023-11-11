@@ -1,10 +1,3 @@
-/**
- * @param {object} $inject - Dependencies
- * @param {*} $inject.router
- * @param {*} $inject.loginController
-
- */
-
 function loginRoutes_injector($inject) {
   const { loginController, router } = $inject;
 

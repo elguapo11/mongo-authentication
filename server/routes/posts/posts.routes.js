@@ -1,10 +1,3 @@
-/**
- * @param {object} $inject - Dependencies
- * @param {*} $inject.router
- * @param {*} $inject.postController
-
- */
-
 function postsRoutes_injector($inject) {
   const { postController, router } = $inject;
 
