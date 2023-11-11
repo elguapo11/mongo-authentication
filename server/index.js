@@ -1,32 +1,37 @@
-require('dotenv').config();
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-const { PORT } = process.env;
-const mongoose = require('mongoose');
-const postController = require('./postController');
-const loginController = require('./loginController');
+'use strict';
 
-mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
-const db = mongoose.connection;
+(async function init() {
+  require('dotenv').config();
+  const express = require('express');
+  const app = express();
+  const bodyParser = require('body-parser');
+  app.use(bodyParser.json());
+  const { PORT } = process.env;
+  const mongoose = require('mongoose');
 
-db.on('error', (error) => console.error(error));
-db.on('open', () => console.log('connected to database'));
+  mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
+  const db = mongoose.connection;
 
-app.post('/login', loginController.login);
-app.get('/logout', loginController.logout);
+  db.on('error', (error) => console.error(error));
+  db.on('open', () => console.log('connected to database'));
 
-app.get('/post/get', postController.getPost);
-app.post('/post/create', postController.createPost);
-app.put('/post/update', postController.updatePost);
-app.delete('/post/delete', postController.deletePost);
+  // app.use(
+  //   '/api',
+  //   (req, res, next) => {
+  //     res.send(200);
+  //     console.log('alive');
+  //     next();
+  //   },
+  //   require('./routes/login'),
+  //   require('./routes/posts'),
 
-app.get('/home', (req, res) => {
-  res.send('ok');
-  console.log('hit home page');
-});
+  //   app.get('/home', (req, res) => {
+  //     res.send('ok');
+  //     console.log('hit home page');
+  //   })
+  // );
 
-app.listen(PORT, () => {
-  console.log(`My server is running on ${PORT}`);
-});
+  app.listen(PORT, () => {
+    console.log(`My server is running on ${PORT}`);
+  });
+})();

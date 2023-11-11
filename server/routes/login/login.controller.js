@@ -1,11 +1,23 @@
-const { getUsers } = require('../server/users');
+const { getUsers } = require('../../users');
+const express = require('express');
 const jwt = require('jsonwebtoken');
 const { SECRETKEY } = process.env;
 const SimpleCrypto = require('simple-crypto-js').default;
 const simpleCrypto = new SimpleCrypto(SECRETKEY);
 
-module.exports = {
-  login: async (req, res) => {
+exports.logout = async (req, res) => {
+  req.session = null;
+  res.send('logged out');
+};
+
+function loginController_injector($inject) {
+  const controller = {
+    login,
+    logout,
+  };
+  return controller;
+
+  async function login(req, res, next) {
     const { username, password } = req.body;
     const users = getUsers(); // Get users from the external file
 
@@ -14,7 +26,6 @@ module.exports = {
     if (!user || user.password !== password) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
-
     // If the user is found and the password is correct, generate a JWT
     const token = jwt.sign({ userId: user.id }, SECRETKEY, { expiresIn: '1h' });
 
@@ -23,9 +34,12 @@ module.exports = {
       token,
     });
     console.log('Presented Token');
-  },
-  logout: async (req, res) => {
+  }
+
+  async function logout(req, res, next) {
     req.session = null;
     res.send('logged out');
-  },
-};
+  }
+}
+
+module.exports = loginController_injector;
