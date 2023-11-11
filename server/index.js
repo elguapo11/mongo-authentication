@@ -23,8 +23,6 @@ const postRoutes = require('./routes/posts');
     next();
   });
 
-  // app.use('/api', require('./routes/login'), require('./routes/posts'));
-
   app.use(postRoutes);
   app.use(loginRoutes);
 
