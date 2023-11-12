@@ -14,7 +14,7 @@ function postController_injector($inject) {
     res.status(200).send('You have created a post');
   }
   async function updatePost(req, res, next) {
-    res.status(200).send('You have created a post');
+    res.status(200).send('You have updated a post');
   }
   async function deletePost(req, res, next) {
     res.status(200).send('Your post has been deleted');
