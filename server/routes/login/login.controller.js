@@ -1,15 +1,9 @@
 const { getUsers } = require('../../users');
-const express = require('express');
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 const SimpleCrypto = require('simple-crypto-js').default;
 const { SECRETKEY } = process.env;
 const simpleCrypto = new SimpleCrypto({ SECRETKEY });
-
-exports.logout = async (req, res) => {
-  req.session = null;
-  res.send('logged out');
-};
 
 function loginController_injector($inject) {
   const controller = {
