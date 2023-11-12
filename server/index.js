@@ -3,7 +3,7 @@
 const loginRoutes = require('./routes/login');
 const postRoutes = require('./routes/posts');
 
-(async function init() {
+async function init() {
   require('dotenv').config();
   const express = require('express');
   const app = express();
@@ -29,4 +29,6 @@ const postRoutes = require('./routes/posts');
   app.listen(PORT, () => {
     console.log(`My server is running on ${PORT}`);
   });
-})();
+}
+
+init();
