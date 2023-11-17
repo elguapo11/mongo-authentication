@@ -1,4 +1,5 @@
 function postController_injector($inject) {
+  const Post = require('../../../models/posts');
   const controller = {
     getPost,
     createPost,

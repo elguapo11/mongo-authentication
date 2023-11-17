@@ -2,6 +2,7 @@
 
 const loginRoutes = require('./routes/login');
 const postRoutes = require('./routes/posts');
+const Post = require('./../models/posts');
 
 async function init() {
   require('dotenv').config();
