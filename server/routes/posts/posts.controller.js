@@ -1,6 +1,4 @@
 function postController_injector($inject) {
-  const { Post } = $inject; // Include Post in the injection
-
   const controller = {
     getPost,
     createPost,

@@ -2,7 +2,6 @@
 
 const loginRoutes = require('./routes/login');
 const postRoutes = require('./routes/posts');
-const mongoose = require('mongoose'); // Add this line for Mongoose
 
 async function init() {
   require('dotenv').config();
@@ -12,7 +11,6 @@ async function init() {
   app.use(bodyParser.json());
   const { PORT } = process.env;
   const mongoose = require('mongoose');
-  const Post = require('./../models/posts.js');
 
   mongoose.connect(process.env.DATABASE_URL, { useNewURLParser: true });
   const db = mongoose.connection;
@@ -25,7 +23,7 @@ async function init() {
     next();
   });
 
-  app.use(postRoutes(Post));
+  app.use(postRoutes);
   app.use(loginRoutes);
 
   app.listen(PORT, () => {
