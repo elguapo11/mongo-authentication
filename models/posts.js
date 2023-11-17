@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
-const schema = mongoose.Schema({
+const postSchema = new mongoose.Schema({
+  // Your post schema definition goes here
   title: String,
   content: String,
+  // ... other fields
 });
 
-module.exports = mongoose.model('Post', schema);
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = Post;
