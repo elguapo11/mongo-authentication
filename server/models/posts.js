@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
-  // Your post schema definition goes here
-  title: String,
-  content: String,
-  // ... other fields
-});
+const postSchema = new mongoose.Schema(
+  {
+    // Your post schema definition goes here
+    Title: String,
+    Content: String,
+    // ... other fields
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Post = mongoose.model('Post', postSchema);
 

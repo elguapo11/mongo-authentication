@@ -23,6 +23,7 @@ function postController_injector($inject) {
       // Create a new post using data from the request body
       const newPost = new Post(req.body);
       await newPost.save();
+      console.log(newPost);
       res.status(201).json(newPost);
     } catch (error) {
       console.error(error);
