@@ -39,8 +39,8 @@ function postController_injector($inject) {
         req.body,
         { new: true }
       );
-      console.log(updatedPost);
-      res.status(200).json(updatedPost);
+      console.log(`Post Number ` + req.params.id + `has been updated`);
+      res.status(200).json(`Post Number ` + req.params.id + `has been updated`);
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
@@ -50,7 +50,8 @@ function postController_injector($inject) {
     try {
       // Delete the post with the specified ID
       await Post.findByIdAndDelete(req.params.id);
-      res.status(200).send('Post deleted successfully');
+      console.log('Post Number ' + req.params.id + `Has Been Deleted`);
+      res.status(200).send('Post Number ' + req.params.id + `Has Been Deleted`);
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
