@@ -1,17 +1,18 @@
 function postController_injector($inject) {
   const Post = require('../../models/posts');
   const controller = {
-    getPost,
+    getAllPosts,
     createPost,
     updatePost,
     deletePost,
   };
   return controller;
 
-  async function getPost(req, res, next) {
+  async function getAllPosts(req, res, next) {
     try {
       // Fetch all posts from the database
       const posts = await Post.find();
+      console.log(posts);
       res.status(200).json(posts);
     } catch (error) {
       console.error(error);
@@ -31,10 +32,29 @@ function postController_injector($inject) {
     }
   }
   async function updatePost(req, res, next) {
-    res.status(200).send('You have updated a post');
+    try {
+      // Update the post with the specified ID using data from the request body
+      const updatedPost = await Post.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+      console.log(updatedPost);
+      res.status(200).json(updatedPost);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
   async function deletePost(req, res, next) {
-    res.status(200).send('Your post has been deleted');
+    try {
+      // Delete the post with the specified ID
+      await Post.findByIdAndDelete(req.params.id);
+      res.status(200).send('Post deleted successfully');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
 }
 
