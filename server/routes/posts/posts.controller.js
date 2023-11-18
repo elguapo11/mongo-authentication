@@ -1,5 +1,5 @@
 function postController_injector($inject) {
-  const Post = require('../../../models/posts');
+  const Post = require('../../models/posts');
   const controller = {
     getPost,
     createPost,
@@ -9,10 +9,25 @@ function postController_injector($inject) {
   return controller;
 
   async function getPost(req, res, next) {
-    res.status(200).send(`Retrieving post`);
+    try {
+      // Fetch all posts from the database
+      const posts = await Post.find();
+      res.status(200).json(posts);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
   async function createPost(req, res, next) {
-    res.status(200).send('You have created a post');
+    try {
+      // Create a new post using data from the request body
+      const newPost = new Post(req.body);
+      await newPost.save();
+      res.status(201).json(newPost);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
   async function updatePost(req, res, next) {
     res.status(200).send('You have updated a post');

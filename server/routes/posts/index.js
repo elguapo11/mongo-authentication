@@ -1,4 +1,4 @@
-const Post = require('../../../models/posts'); // Adjust the path if needed
+const Post = require('../../models/posts'); // Adjust the path if needed
 
 //controller
 
