@@ -28,7 +28,7 @@ function loginController_injector($inject) {
       message: `Welcome ${username}, Your Authentication was successful`,
       token,
     });
-    console.log('Presented Token');
+    console.log('Presented Token ' + token);
   }
 
   async function logout(req, res, next) {
