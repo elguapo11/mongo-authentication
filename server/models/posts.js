@@ -5,6 +5,7 @@ const postSchema = new mongoose.Schema(
     // Your post schema definition goes here
     Title: String,
     Content: String,
+    Tag: String,
     // ... other fields
   },
   {
