@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react'
 
 
 function Posts() {
-    const [posts, setPosts] = useState([]);
+    const [posts, setgetAllPosts] = useState([]);
   
     useEffect(() => {
       // Fetch all posts when the component mounts
       const getAllPosts = async () => {
         try {
           const response = await axios.get('http://localhost:3000/posts/get');
-          setPosts(response.data);
+          setgetAllPosts(response.data);
         } catch (error) {
           console.error('Error fetching posts:', error);
         }
