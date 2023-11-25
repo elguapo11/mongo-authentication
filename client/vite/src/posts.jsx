@@ -1,35 +1,36 @@
-import axios from 'axios'; // Import axios for making HTTP requests
-import { useState, useEffect } from 'react'
-
+import axios from 'axios';
+import { useState } from 'react';
 
 function Posts() {
-    const [posts, setgetAllPosts] = useState([]);
-  
-    useEffect(() => {
-      // Fetch all posts when the component mounts
-      const getAllPosts = async () => {
-        try {
-          const response = await axios.get('http://localhost:3000/posts/get');
-          setgetAllPosts(response.data);
-        } catch (error) {
-          console.error('Error fetching posts:', error);
-        }
-      };
-  
-      getAllPosts();
-    }, []);
+  const [posts, setPosts] = useState(null);
 
-    return (
+  const getAllPosts = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/posts/get');
+      setPosts(response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
 
-        <div className="posts">
-        {posts.map((post) => (
+  const handleButtonClick = () => {
+    // Fetch posts when the button is clicked
+    getAllPosts();
+  };
+
+  return (
+    <div className="posts">
+      <button onClick={handleButtonClick}>Fetch Posts</button>
+      {posts && ( //this is brilliant, will check if posts is truthy before running
+        posts.map((post) => (
           <div key={post._id}>
             <h2>{post.Title}</h2>
             <h6>{post.Tag}</h6>
           </div>
-        ))}
-      </div>
-    )
+        ))
+      )}
+    </div>
+  );
 }
 
-    export default Posts
+export default Posts;
