@@ -18,7 +18,6 @@ function Create() {
       .post('http://localhost:3000/posts/create', postBody)
 
       .then((response) => console.log('post created'));
-    window.location.reload();
   }
 
   return (
