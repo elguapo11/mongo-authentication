@@ -33,8 +33,8 @@ function Posts() {
       {posts && posts.length > 0 ? (
         posts.map((post) => (
           <div key={post._id}>
-            <h2>Title: {post.Title}</h2>
-            <h4>Content: {post.Content}</h4>
+            <h4>Title: {post.Title}</h4>
+            <h2>Content: {post.Content}</h2>
             <h4>Tag: {post.Tag}</h4>
             <h6>Id: {post._id}</h6>
           </div>
