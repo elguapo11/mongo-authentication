@@ -28,7 +28,7 @@ function Create() {
       <label htmlFor='content'>Content</label>
       <input ref={contentRef} type='content' id='content' />
       <span></span>
-      <label htmlFor='tag'>tag</label>
+      <label htmlFor='tag'>Tag</label>
       <input ref={tagRef} type='tag' id='tag' />
       <button type='submit'>Submit</button>
     </form>
