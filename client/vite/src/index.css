@@ -39,8 +39,12 @@ body {
   border-radius: 8px;
   margin-bottom: 20px;
 }
-input {
-  padding: 1.5em;
+input#title {
+  width: 90%;
+}
+input#content {
+  width: 90%;
+  height: 9rem;
 }
 label {
 }
@@ -49,7 +53,6 @@ label {
   display: flex; /* Use display: flex for better alignment */
   flex-direction: column;
   align-items: flex-start;
-  padding: 2.5em;
 }
 
 #title {
@@ -64,16 +67,16 @@ h1 {
 }
 
 button {
-  border-radius: 4px;
+  border-radius: 75px;
   border: none;
-  padding: 1em 2em; /* Adjusted button padding for better proportions */
+  padding: 25px; /* Adjusted button padding for better proportions */
   font-size: 1.2em; /* Increased font size for emphasis */
   font-weight: 700; /* Increased font weight for boldness */
   background-color: #3498db;
+  margin: 10px;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 10px;
 }
 button:hover {
   background-color: #2980b9;
