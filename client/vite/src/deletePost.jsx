@@ -16,9 +16,9 @@ function Delete() {
 
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor='Delete Post'> Delete Post</label>
-      <button type='submit'>Submit</button>
-      <input ref={postIdRef} type='ID' id='ID' />
+      <label htmlFor='Delete Post'> Delete Post # </label>
+      <input ref={postIdRef} type='id_delete' id='id_delete' />
+      <button type='submit'>Delete</button>
     </form>
   );
 }

@@ -21,7 +21,7 @@ function Create() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form id='form' onSubmit={onSubmit}>
       <label htmlFor='title'>Title</label>
       <input ref={titleRef} type='title' id='title' />
       <span></span>

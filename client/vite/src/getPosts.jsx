@@ -23,6 +23,7 @@ function Posts() {
   const clearPostsClick = () => {
     // Clear posts when the button is clicked
     console.log('posts have been cleared');
+    window.location.reload();
   };
 
   return (
