@@ -23,6 +23,7 @@ function Create() {
   return (
     <form id='form' onSubmit={onSubmit}>
       <label htmlFor='title'></label>
+      <h1>Create your Post</h1>
       <input
         ref={titleRef}
         placeholder='Write a Title'

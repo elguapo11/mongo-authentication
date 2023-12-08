@@ -50,6 +50,8 @@ function Posts() {
             >
               Delete Post
             </button>
+            <button>Edit</button>
+            <br></br>
           </div>
         ))
       ) : (
@@ -57,6 +59,7 @@ function Posts() {
         //It checks if posts is not null (indicating that the fetch operation has been performed) and the length is 0. If both conditions are true, it displays the message. Otherwise, it displays an empty string,
         //effectively hiding the message when there are posts.
       )}
+      <br></br>
     </div>
   );
 }
