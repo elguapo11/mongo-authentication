@@ -47,9 +47,10 @@ form#form {
 
 input#title {
   width: 90%;
+  font-family: monospace;
 }
 input#content {
-  font-family: 'Inter', sans-serif;
+  font-family: monospace;
 
   width: 90%;
   min-height: 5rem;
@@ -163,4 +164,7 @@ textarea#content {
 
   /* Optional: Add a subtle box shadow for a modern look */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+textarea {
+  font-family: monospace;
 }
