@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import EditPost from './editPost';
 
 function Posts() {
   const [posts, setPosts] = useState(null);
@@ -24,6 +25,20 @@ function Posts() {
     // Clear posts when the button is clicked
     console.log('posts have been cleared');
     window.location.reload();
+  };
+  const handleEdit = async (postId, updatedContent) => {
+    try {
+      // Call your API endpoint to update the post
+      await axios.put(`http://localhost:3000/posts/update/${postId}`, {
+        Content: updatedContent,
+      });
+
+      console.log(`Post with ID ${postId} has been updated`);
+      // Optionally, you can fetch the posts again after updating
+      getAllPosts();
+    } catch (error) {
+      console.error('Error updating post:', error);
+    }
   };
   const handleDelete = async (post_Id) => {
     try {
@@ -50,6 +65,8 @@ function Posts() {
             >
               Delete Post
             </button>
+            <EditPost handleEdit={handleEdit} postId={post._id} />
+
             <button>Edit</button>
             <br></br>
           </div>
