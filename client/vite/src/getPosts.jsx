@@ -48,7 +48,7 @@ function Posts() {
               className='deleteButton'
               onClick={() => handleDelete(post._id)}
             >
-              Delete
+              Delete Post
             </button>
           </div>
         ))

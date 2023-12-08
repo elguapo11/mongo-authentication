@@ -38,7 +38,9 @@ body {
 }
 
 form#form {
+  display: flex;
   vertical-align: top;
+  justify-content: space-around;
   line-height: 1; /* Set line-height to 1 for top alignment */
 }
 
@@ -61,6 +63,7 @@ label {
 #form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
   vertical-align: top;
 }

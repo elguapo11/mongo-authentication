@@ -61,13 +61,13 @@
 .title {
   font-size: 1.5em; /* Adjust font size as needed */
   font-weight: bold;
-  color: #333; /* Adjust color as needed */
+  color: #a5a0a0; /* Adjust color as needed */
   text-align: left; /* Align title to the left */
 }
 
 .content {
   font-size: 1.2em; /* Adjust font size as needed */
-  color: #555; /* Adjust color as needed */
+  color: #ffffff; /* Adjust color as needed */
   text-align: left; /* Align content to the left */
 }
 

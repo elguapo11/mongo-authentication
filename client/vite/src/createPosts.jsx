@@ -22,11 +22,21 @@ function Create() {
 
   return (
     <form id='form' onSubmit={onSubmit}>
-      <label htmlFor='title'>Title</label>
-      <input ref={titleRef} type='title' id='title' />
-      <span></span>
-      <label htmlFor='content'>Content</label>
-      <input ref={contentRef} type='content' id='content' />
+      <label htmlFor='title'></label>
+      <input
+        ref={titleRef}
+        placeholder='Write a Title'
+        type='title'
+        id='title'
+      />
+      <br></br>
+      <label htmlFor='content'></label>
+      <input
+        ref={contentRef}
+        placeholder='Write your Thoughts'
+        type='content'
+        id='content'
+      />
       <span></span>
       <button type='submit'>Submit</button>
     </form>
