@@ -25,6 +25,15 @@ function Posts() {
     console.log('posts have been cleared');
     window.location.reload();
   };
+  const handleDelete = async (post_Id) => {
+    try {
+      await axios.delete(`http://localhost:3000/posts/delete/${post_Id}`);
+      console.log(`Post with ID ${post_Id} deleted successfully.`);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  };
 
   return (
     <div className='posts'>
@@ -35,8 +44,7 @@ function Posts() {
           <div key={post._id}>
             <h4>Title: {post.Title}</h4>
             <h2>Content: {post.Content}</h2>
-            <h4>Tag: {post.Tag}</h4>
-            <h6>Id: {post._id}</h6>
+            <button onClick={() => handleDelete(post._id)}>Delete</button>
           </div>
         ))
       ) : (
