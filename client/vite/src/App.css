@@ -61,6 +61,8 @@
 .title {
   font-size: 1.5em; /* Adjust font size as needed */
   font-weight: bold;
+  font-family: monospace;
+
   color: #a5a0a0; /* Adjust color as needed */
   text-align: left; /* Align title to the left */
 }
@@ -69,6 +71,7 @@
   font-size: 1.2em; /* Adjust font size as needed */
   color: #ffffff; /* Adjust color as needed */
   text-align: left; /* Align content to the left */
+  vertical-align: top; /* Move the cursor to the top left */
 }
 
 .deleteButton {
@@ -92,4 +95,7 @@
 .deleteButton:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.4);
+}
+
+input#content {
 }

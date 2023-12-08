@@ -1,5 +1,6 @@
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: monospace;
+
   line-height: 1.6;
   font-weight: 600;
   color-scheme: light dark;
@@ -48,12 +49,11 @@ input#title {
   width: 90%;
 }
 input#content {
+  font-family: 'Inter', sans-serif;
+
   width: 90%;
   min-height: 5rem;
   border: 1px solid #555;
-  text-align: left;
-  vertical-align: top;
-  line-height: 1; /* Set line-height to 1 for top alignment */
 }
 
 label {
@@ -72,11 +72,14 @@ h1 {
   font-size: 2.8em;
   line-height: 1.2;
   color: #ecf0f1;
+  font-family: monospace;
 }
 
 button {
   border: none;
   font-size: 1.2em;
+  font-family: monospace;
+
   font-weight: 500;
   background-color: #3498db;
   margin: 10px;
@@ -137,4 +140,27 @@ button:focus-visible {
   button:hover {
     background-color: #2980b9;
   }
+}
+
+textarea#content {
+  font-size: 1.2em;
+  color: #ffffff; /* Text color */
+  padding: 10px;
+  border: 2px solid #ddd; /* Border color */
+  border-radius: 8px;
+  width: 100%;
+  min-height: 150px; /* Adjust as needed */
+  resize: vertical; /* Allow vertical resizing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.3s ease; /* Smooth border color transition */
+
+  /* Optional: Add hover and focus styles */
+  &:hover,
+  &:focus {
+    border-color: #3498db; /* Border color on hover/focus */
+    outline: none; /* Remove default focus outline */
+  }
+
+  /* Optional: Add a subtle box shadow for a modern look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

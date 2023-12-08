@@ -31,12 +31,11 @@ function Create() {
       />
       <br></br>
       <label htmlFor='content'></label>
-      <input
+      <textarea
         ref={contentRef}
         placeholder='Write your Thoughts'
-        type='content'
         id='content'
-      />
+      ></textarea>
       <span></span>
       <button type='submit'>Submit</button>
     </form>
