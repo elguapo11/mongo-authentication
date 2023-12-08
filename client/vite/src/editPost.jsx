@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import axios from 'axios';
 
 function EditPost({ postId, handleEdit }) {
   const [isEditing, setIsEditing] = useState(false);
