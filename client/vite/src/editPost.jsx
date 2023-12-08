@@ -33,7 +33,11 @@ function EditPost({ postId, handleEdit }) {
         <button onClick={handleEditClick}>Edit</button>
       ) : (
         <div>
-          <textarea ref={updatedContentRef} defaultValue={'test'} />
+          <textarea
+            className='defaultValue_update'
+            ref={updatedContentRef}
+            defaultValue={'Update your thoughts'}
+          />
           <button onClick={handleSaveClick}>Save</button>
           <button onClick={handleCancelClick}>Cancel</button>
         </div>

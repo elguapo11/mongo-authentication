@@ -66,8 +66,6 @@ function Posts() {
               Delete Post
             </button>
             <EditPost handleEdit={handleEdit} postId={post._id} />
-
-            <button>Edit</button>
             <br></br>
           </div>
         ))
