@@ -41,10 +41,15 @@ function Posts() {
       <button onClick={clearPostsClick}>Clear Posts</button>
       {posts && posts.length > 0 ? (
         posts.map((post) => (
-          <div key={post._id}>
-            <h4>Title: {post.Title}</h4>
-            <h2>Content: {post.Content}</h2>
-            <button onClick={() => handleDelete(post._id)}>Delete</button>
+          <div className='fetch_posts' key={post._id}>
+            <h4 className='title'>Title: {post.Title}</h4>
+            <h2 className='content'>Content: {post.Content}</h2>
+            <button
+              className='deleteButton'
+              onClick={() => handleDelete(post._id)}
+            >
+              Delete
+            </button>
           </div>
         ))
       ) : (

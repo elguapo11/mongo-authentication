@@ -109,6 +109,17 @@ button:focus-visible {
 
   .posts {
     background-color: #fff;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+
+    justify-content: space-around; /* Adjust as needed */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if they exceed the container width */
+  }
+
+  .post {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    width: 100%; /* Ensure posts take the full width within the specified maximum width */
+    margin: 10px;
   }
 
   h1 {

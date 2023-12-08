@@ -39,3 +39,57 @@
 .read-the-docs {
   color: #888;
 }
+
+.fetch_posts {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  justify-content: space-between; /* Adjust as needed */
+  align-items: flex-start; /* Align items to the top */
+  flex-wrap: wrap; /* Allows items to wrap to the next line if they exceed the container width */
+}
+
+.fetch_posts > * {
+  margin: 10px;
+}
+
+.post {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 100%; /* Ensure posts take the full width within the specified maximum width */
+  margin: 10px;
+}
+
+.title {
+  font-size: 1.5em; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+  text-align: left; /* Align title to the left */
+}
+
+.content {
+  font-size: 1.2em; /* Adjust font size as needed */
+  color: #555; /* Adjust color as needed */
+  text-align: left; /* Align content to the left */
+}
+
+.deleteButton {
+  border: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #e74c3c; /* Red color, you can change it to your preferred color */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b; /* Darker red color on hover */
+  transform: scale(1.05);
+}
+
+.deleteButton:focus,
+.deleteButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.4);
+}
