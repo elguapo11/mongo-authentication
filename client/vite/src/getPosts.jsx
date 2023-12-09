@@ -59,6 +59,8 @@ function Posts() {
           <div className='fetch_posts' key={post._id}>
             <h4 className='title'>Title: {post.Title}</h4>
             <h2 className='content'>Content: {post.Content}</h2>
+            <h6 className='created at'> Created at: {post.createdAt}</h6>
+            <h6 className='created at'> Updated at: {post.updatedAt}</h6>
             <button
               className='deleteButton'
               onClick={() => handleDelete(post._id)}

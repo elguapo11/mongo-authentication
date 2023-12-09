@@ -4,7 +4,6 @@ import { useRef } from 'react';
 function Create() {
   const titleRef = useRef();
   const contentRef = useRef();
-  const tagRef = useRef();
 
   function onSubmit(e) {
     e.preventDefault();
