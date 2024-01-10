@@ -7,9 +7,9 @@ function Posts() {
   const [originalPosts, setOriginalPosts] = useState(null);
   const [editedPosts, setEditedPosts] = useState([]);
 
-  // useEffect(() => {
-  //   // getAllPosts();
-  // }, []);
+  useEffect(() => {
+    // getAllPosts();
+  }, []);
 
   const getAllPosts = async () => {
     try {
@@ -23,13 +23,9 @@ function Posts() {
 
   const getPostsClick = () => {
     getAllPosts();
-    if (posts === null) {
-      console.log('no posts available');
-    }
   };
 
   const clearPostsClick = () => {
-    console.log('posts have been cleared');
     window.location.reload();
   };
 
