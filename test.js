@@ -31,3 +31,14 @@ function solution(nums) {
     : // : []: If nums is falsy (null, undefined, or an empty array), the function returns an empty array [].
       [];
 }
+
+function finalGrade(exam, projects) {
+  if (exam > 90 || projects > 10) return 100;
+  // This checks if the exam score is greater than 90 or the number
+  // of projects is greater than 10. If either condition is true, the function immediately returns a grade of 100.
+  if ((exam > 75) & (projects >= 5)) return 90;
+  // If the first condition is not met, this checks if the exam score is greater
+  //  than 75 and the number of projects is greater than or equal to 5. If this condition is true, the function returns a grade of 90.
+  if ((exam > 50) & (projects >= 2)) return 75;
+  return 0;
+}
