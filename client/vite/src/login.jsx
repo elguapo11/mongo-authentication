@@ -7,14 +7,14 @@ function Login() {
   const username = useRef();
   const password = useRef();
 
-  const loginUser = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/login');
-      setUser(response.data);
-    } catch (error) {
-      console.error('error getting user logged in', error);
-    }
-  };
+  function onSubmit(e) {
+    e.preventDefault();
+    const userCredentials = {
+      username: username.current.value,
+      password: password.current.value,
+    };
+  }
+
   return (
     <div>
       <br></br>
