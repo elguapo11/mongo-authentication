@@ -17,19 +17,22 @@ function Login() {
   };
   return (
     <div>
-      <button onClick={loginUser}>Login</button>
+      <br></br>
       <input
         ref={username}
         placeholder='Enter Username'
         type='user'
         id='user'
       />
+      <br></br>
       <input
         ref={password}
         placeholder='Enter password'
         type='password'
         id='password'
       />
+      <br></br>
+      <button onClick={loginUser}>Login</button>
     </div>
   );
 }
