@@ -13,6 +13,9 @@ function Login() {
       username: username.current.value,
       password: password.current.value,
     };
+    axios
+      .post('http://localhost:3000/login', userCredentials)
+      .then((response) => console.log('you have been logged in'));
   }
 
   return (
