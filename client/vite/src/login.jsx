@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRef } from 'react';
 
 function Login() {
-  const [user, setUser] = useState(null);
   const username = useRef();
   const password = useRef();
 
@@ -15,7 +14,7 @@ function Login() {
     };
     axios
       .post('http://localhost:3000/login', userCredentials)
-      .then((response) => console.log('you have been logged in'));
+      .then((response) => alert(`You are logged in ${username.current.value}`));
   }
 
   return (
