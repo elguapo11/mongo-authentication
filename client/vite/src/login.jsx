@@ -16,9 +16,7 @@ function Login() {
       axios
         .post('http://localhost:3000/login', userCredentials)
         .then((res) => console.log(res.data.message))
-        .catch((error) =>
-          console.log(error.response.statusText, error.response.data.message)
-        );
+        .catch((error) => console.log(error.response.data.message));
     }
   }
 
