@@ -12,9 +12,14 @@ function Login() {
       username: username.current.value,
       password: password.current.value,
     };
-    axios
-      .post('http://localhost:3000/login', userCredentials)
-      .then((response) => alert(`You are logged in ${username.current.value}`));
+    {
+      axios
+        .post('http://localhost:3000/login', userCredentials)
+        .then((res) => console.log(res.data.message))
+        .catch((error) =>
+          console.log(error.response.statusText, error.response.data.message)
+        );
+    }
   }
 
   return (
