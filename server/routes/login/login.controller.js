@@ -19,7 +19,9 @@ function loginController_injector($inject) {
     const user = users.find((u) => u.username === username);
 
     if (!user || user.password !== password) {
-      return res.status(401).json({ message: 'Authentication failed' });
+      return res
+        .status(401)
+        .json({ message: 'Incorrect username or password' });
     }
     // If the user is found and the password is correct, generate a JWT
     const token = jwt.sign({ userId: user.id }, SECRETKEY, { expiresIn: '1h' });
