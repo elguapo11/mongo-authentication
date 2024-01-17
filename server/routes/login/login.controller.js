@@ -14,6 +14,11 @@ function loginController_injector($inject) {
 
   async function login(req, res, next) {
     const { username, password } = req.body;
+    if (username === '' || password === '') {
+      return res
+        .status(400)
+        .json({ message: 'Please enter your username and password' });
+    }
     const users = getUsers(); // Get users from the external file
 
     const user = users.find((u) => u.username === username);
@@ -23,6 +28,7 @@ function loginController_injector($inject) {
         .status(401)
         .json({ message: 'Incorrect username or password' });
     }
+
     // If the user is found and the password is correct, generate a JWT
     const token = jwt.sign({ userId: user.id }, SECRETKEY, { expiresIn: '1h' });
 
