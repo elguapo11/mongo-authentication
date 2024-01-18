@@ -19,6 +19,11 @@ function loginController_injector($inject) {
         .status(400)
         .json({ message: 'Please enter your username and password' });
     }
+    if (username === 'benny' && password === '123') {
+      return res
+        .status(200)
+        .json({ message: 'Get out of here, ya silly goose' });
+    }
     const users = getUsers(); // Get users from the external file
 
     const user = users.find((u) => u.username === username);
