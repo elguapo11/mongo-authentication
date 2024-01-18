@@ -5,11 +5,14 @@ import './index.css';
 import Posts from './getPosts.jsx';
 import Create from './createPosts.jsx';
 import Login from './login.jsx';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Login />
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
     <Posts />
     <Create />
   </React.StrictMode>
