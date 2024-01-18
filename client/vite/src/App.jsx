@@ -13,9 +13,9 @@ function App() {
   return (
     <Router>
       <h2>
-        <Link>Hello World</Link>
+        <Link to='/Page'>Hello World</Link>
       </h2>
-      <Routes element={<Page />}></Routes>
+      <Routes path='/Page' element={<Page />}></Routes>
     </Router>
   );
 }
