@@ -65,8 +65,10 @@ function postController_injector($inject) {
   async function modifyNumber(req, res, next) {
     try {
       const number = parseInt(req.params.number);
+      const body = Object.keys(req.body);
+
       const newNumber = number + 1;
-      res.status(200).json(`Your new number is${newNumber}`);
+      res.status(200).json(`Your new number is ${newNumber}` + ' ' + body);
       console.log(number + 1);
     } catch (error) {
       console.error(error);
