@@ -5,6 +5,7 @@ function postController_injector($inject) {
     createPost,
     updatePost,
     deletePost,
+    modifyNumber,
   };
   return controller;
 
@@ -56,6 +57,17 @@ function postController_injector($inject) {
       res
         .status(200)
         .send('Post Number ' + req.params.id + ` Has Been Deleted`);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
+  async function modifyNumber(req, res, next) {
+    try {
+      const number = parseInt(req.params.number);
+      const newNumber = number + 1;
+      res.status(200).json(`Your new number is${newNumber}`);
+      console.log(number + 1);
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');

@@ -5,6 +5,7 @@ function postsRoutes_injector($inject) {
   router.route('/posts/create').post(postController.createPost);
   router.route('/posts/update/:id').put(postController.updatePost);
   router.route('/posts/delete/:id').delete(postController.deletePost);
+  router.route('/posts/modify/:number').post(postController.modifyNumber);
 
   return router;
 }
