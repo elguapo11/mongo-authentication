@@ -1,0 +1,3 @@
+stderr 6
+stderr 7
+stderr 8

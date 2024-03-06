@@ -1,70 +1,57 @@
-// Import necessary modules
 const fs = require('fs');
-const readline = require('readline');
-const path = require('/Users/bennymendoza/Documents/coding_projects/mongo-authentication/100-stdout-stderr.txt');
+const path = require('path');
 
-// Check for the correct number of arguments
+// Check for proper command line arguments
 if (process.argv.length !== 4) {
-  console.log('Usage: node splitTextFile.js <file path> <lines per split>');
+  console.log(
+    'Usage: node splitFile.js <file-to-split.txt> <number-of-output-files>'
+  );
   process.exit(1);
 }
 
-// Extract arguments
-const filePath = process.argv[2];
-const linesPerSplit = parseInt(process.argv[3], 10);
+const inputFile = process.argv[2];
+const numberOfFiles = parseInt(process.argv[3], 10);
 
-// Validate linesPerSplit
-if (isNaN(linesPerSplit) || linesPerSplit <= 0) {
-  console.log('Please provide a valid number of lines per split.');
+// Validate the number of files
+if (isNaN(numberOfFiles) || numberOfFiles < 1) {
+  console.log('Please provide a valid number of files to split into.');
   process.exit(1);
 }
 
-// Function to split the file
-async function splitFile(filePath, linesPerSplit) {
-  try {
-    const fileStream = fs.createReadStream(filePath);
-
-    const rl = readline.createInterface({
-      input: fileStream,
-      crlfDelay: Infinity,
-    });
-
-    let lineCount = 0;
-    let fileCount = 1;
-    let outputLines = [];
-
-    for await (const line of rl) {
-      outputLines.push(line);
-      lineCount++;
-
-      if (lineCount === linesPerSplit) {
-        const outputFilePath = `${path.basename(
-          filePath,
-          '.txt'
-        )}_part${fileCount}.txt`;
-        fs.writeFileSync(outputFilePath, outputLines.join('\n'));
-        console.log(`Written ${outputFilePath}`);
-
-        // Reset for the next file
-        lineCount = 0;
-        fileCount++;
-        outputLines = [];
-      }
+// Function to split and create files
+const splitFile = (inputFile, numberOfFiles) => {
+  fs.readFile(inputFile, 'utf8', (err, data) => {
+    if (err) {
+      console.error(`Error reading file: ${inputFile}`);
+      process.exit(1);
     }
 
-    // Check for any remaining lines that didn't make a full set
-    if (outputLines.length > 0) {
-      const outputFilePath = `${path.basename(
-        filePath,
-        '.txt'
-      )}_part${fileCount}.txt`;
-      fs.writeFileSync(outputFilePath, outputLines.join('\n'));
-      console.log(`Written ${outputFilePath}`);
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-}
+    // Split the file content by lines
+    const lines = data.split(/\r?\n/);
 
-// Execute the function
-splitFile(filePath, linesPerSplit);
+    // Calculate the number of lines per file
+    const linesPerFile = Math.ceil(lines.length / numberOfFiles);
+
+    for (let i = 0; i < numberOfFiles; i++) {
+      // Determine the slice of lines for this file
+      const startLine = i * linesPerFile;
+      const endLine = startLine + linesPerFile;
+      const fileContent = lines.slice(startLine, endLine).join('\n');
+
+      // Create a file name based on the original name and the split index
+      const outputFile = `${path.basename(inputFile, '.txt')}_part${i + 1}.txt`;
+
+      // Write the sliced content to a new file
+      fs.writeFile(outputFile, fileContent, 'utf8', (err) => {
+        if (err) {
+          console.error(`Error writing file: ${outputFile}`);
+          return;
+        }
+        console.log(`File ${outputFile} has been created.`);
+      });
+    }
+  });
+};
+
+// Invoke the function
+splitFile(inputFile, numberOfFiles);
